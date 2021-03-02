@@ -1,3 +1,6 @@
+An error in using Intel MKL Pardiso
+=====
+
 This repository includes the python file and two data files needed to reproduce an Intel MKL
 Pardiso error that occurs to us, when partially solving a linear
 equation with Pardiso:
@@ -10,13 +13,15 @@ equation with Pardiso:
 
 The steps below trigger the error:
 
-- Pull the docker image:  docker pull continuumio/anaconda3
+1. Install docker: https://docs.docker.com/get-docker/
 
-- Change directory to the one of this repository: cd repo_dir
+2. Pull the docker image:  docker pull continuumio/anaconda3
 
-- Run the docker image while mounting the directory of the repository:
+3. Change directory to the one of this repository: cd <your_repo_dir>
+
+4. Run the docker image while mounting the directory of the repository:
   docker run --mount type=bind,source=${PWD},target=/mnt/local -it continuumio/anaconda3 /bin/bash
 
-- Run the python file from within the Docker image:
+5. Run the python file within the Docker image:
   python /mnt/local/run_pardiso.py
 
